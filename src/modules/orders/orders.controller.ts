@@ -83,8 +83,8 @@ export class OrdersController {
   }
 
   @Patch('technicaldata/:id') // Endpoint verificado!
-  @Roles(Role.TECHN)
-  @UseGuards(AuthGuard, RoleGuard)
+  // @Roles(Role.TECHN)
+  // @UseGuards(AuthGuard, RoleGuard)
   async updateTechnicalData(
     @Param('id') orderId: string,
     @Body() updateTechnicalDataDto: UpdateTechicalDataDto,
@@ -93,6 +93,14 @@ export class OrdersController {
       orderId,
       updateTechnicalDataDto,
     );
+  }
+
+  @Patch('orderUpdate/:id')
+  async updateOrder(
+    @Param('id') orderId: string,
+    @Body() updateData: UpdateOrderDto,
+  ){
+    return this.ordersService.orderUpdate(orderId, updateData);
   }
 
   @Patch(':id/status') // Endpoint verificado!

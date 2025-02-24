@@ -132,6 +132,12 @@ export class OrdersRepository  {
       user: orderData.user ? { id: orderData.user } : null
     });
     await this.ordersRepository.save(order);
+    return order;
+  }
+
+  async orderUpdate(id: string, updateData: UpdateOrderDto) {
+    await this.ordersRepository.update(id, updateData);
+    return this.ordersRepository.findOne({ where: { id } });
   }
   
   

@@ -7,14 +7,14 @@ export class UpdateTechicalDataDto {
 
   @IsEnum (EquipmentType)
   @IsNotEmpty ()
-  equipmentType: EquipmentType;
+  equipmentType?: EquipmentType;
 
   @IsString ()
   @IsNotEmpty ()
-  imei: string;
+  imei?: string;
 
   @IsString ()
   @IsNotEmpty ()
-  description: string;
+  description?: string;
   
 }

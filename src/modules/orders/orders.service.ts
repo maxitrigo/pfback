@@ -165,6 +165,10 @@ export class OrdersService {
   }
 
   async orderCreation(orderData: CreationOrderDto) {
-    await this.ordersRepository.orderCreation(orderData);
+    return await this.ordersRepository.orderCreation(orderData);
+  }
+
+  async orderUpdate(id: string, updateData: UpdateOrderDto) {
+    return await this.ordersRepository.updateOrder(id, updateData);
   }
 }
