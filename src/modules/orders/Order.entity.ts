@@ -74,6 +74,9 @@ export class Order {
   @OneToOne(() => Payment, (payment) => payment.order)
   payment: Payment;
 
+  @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
+
   @Column({ type: 'jsonb', default: [] })
   statusHistory: { [key: string]: string }[];
 }
